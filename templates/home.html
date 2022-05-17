@@ -94,6 +94,15 @@
     $("#vol-down").click(function () {
       $.get("/vol_down");
     });
+    $("#cycle_audio_track").click(function () {
+      $.get("/cycle_audio_track");
+    });
+    $("#audio_delay_up").click(function () {
+      $.get("/audio_delay_up");
+    });
+    $("#audio_delay_down").click(function () {
+      $.get("/audio_delay_down");
+    });
 
     $("#restart").click(function () {
       r = confirm("Are you sure you want to restart this track?");
@@ -109,6 +118,7 @@
       if (r) {
         $.get("/skip");
       }
+
     });
 
     $("#semitones-info").click(function () {
@@ -147,6 +157,7 @@
 <p id="up-next" class="has-text-warning"></p>
 <hr />
 
+
 {% if admin %}
 <div class="has-background-black-bis box control-box" style="max-width: 500px">
   <h4>Player Control</h4>
@@ -164,8 +175,48 @@
       <a title="Volume Up" id="vol-up"><i class="icon icon-volume-up"></i> </a>
     </span>
   </p>
+
+    <hr/>
+    <div class="is-flex" style="justify-content: space-between">
+      <div>
+        <h4>Sound Track</h4>
+      
+      </div>
+
+      <div class="is-flex">
+        <button
+          id="audio_delay_up"
+          class="button is-rounded is-small"
+          
+        >
+          delay_up
+        </button>
+      </div>
+
+      <div class="is-flex">
+        <button
+          id="audio_delay_down"
+          class="button is-rounded is-small"
+          
+        >
+          delay_down
+        </button>
+      </div>
+
+      <div class="is-flex">
+        <button
+          id="cycle_audio_track"
+          class="button is-rounded is-small"
+          style="margin-left: 10px"
+        >
+          Toggle
+        </button>
+      </div>
+    </div>	
 <!-- </div> -->
 
+
+<!-- </div> -->
   {% if show_transpose %}
   <!-- <div class="has-background-black-bis box control-box" style="max-width: 500px"> -->
     <hr/>

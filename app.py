@@ -8,6 +8,7 @@ import subprocess
 import sys
 import threading
 import time
+import keyboard
 from functools import wraps
 
 import cherrypy
@@ -201,7 +202,18 @@ def skip():
     k.skip()
     return redirect(url_for("home"))
 
-
+@app.route("/cycle_audio_track")
+def cycle_audio_track():
+    keyboard.press_and_release("b")
+    return redirect(url_for("home"))
+@app.route("/audio_delay_up")
+def audio_delay_up():
+    keyboard.press_and_release("k")
+    return redirect(url_for("home"))
+@app.route("/audio_delay_down")
+def audio_delay_down():
+    keyboard.press_and_release("j")
+    return redirect(url_for("home"))
 @app.route("/pause")
 def pause():
     k.pause()

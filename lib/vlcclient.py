@@ -68,7 +68,7 @@ class VLCClient:
             "--http-password",
             self.http_password,
             "--no-embedded-video",
-            "--no-keyboard-events",
+            #"--no-keyboard-events",
             "--no-mouse-events",
             "--mouse-hide-timeout",
             "0",
