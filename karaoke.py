@@ -647,6 +647,17 @@ class Karaoke:
                 del self.queue[index]
                 self.queue.insert(index + 1, song)
                 return True
+        elif action == "top":
+            if index < 1:
+                logging.warn(
+                    "Song is up next, can't bump up in queue:" + song["file"]
+                )
+                return False
+            else:
+                logging.info("Bumping song down in queue: " + song["file"])
+                del self.queue[index]
+                self.queue.insert(0, song)
+                return True    
         elif action == "delete":
             logging.info("Deleting song from queue: " + song["file"])
             del self.queue[index]
