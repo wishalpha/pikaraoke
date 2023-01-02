@@ -182,9 +182,9 @@ def queue_edit():
         elif action == "top":
             result = k.queue_edit(song, "top")
             if result:
-                flash("Moved up in queue: " + song, "is-success")
+                flash("Moved top in queue: " + song, "is-success")
             else:
-                flash("Error moving up in queue: " + song, "is-danger")
+                flash("Error moving top in queue: " + song, "is-danger")
         elif action == "delete":
             result = k.queue_edit(song, "delete")
             if result:

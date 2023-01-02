@@ -26,7 +26,7 @@
             {% if admin %}
               <td width="20px" style="padding: 5px 0px">
                 <a
-                  class="up-button"
+                  class="top-button"
                   href="/queue/edit?action=top&song=${encodeURIComponent(e.file)}"
                   title="Move top in queue"
                   ><i class="icon  icon-up-circled ${index == 0 && "is-hidden"}"></i>
@@ -83,7 +83,11 @@
         getQueue();
       }
   });
-
+  $(document).on('click', '.top-button', function (e) {
+    e.preventDefault();
+    $.get(this.href, function (data) {})
+    getQueue();
+  });
   $(document).on('click', '.up-button', function (e) {
     e.preventDefault();
     $.get(this.href, function (data) {})
