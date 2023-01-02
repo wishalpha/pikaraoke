@@ -321,7 +321,15 @@ def browse():
                 if (f.startswith(letter.lower())):
                     result.append(song)
         available_songs = result
-
+    
+    SS=request.args.get('SearchString')
+    if SS:
+        result=[]
+        for song in available_songs:
+            if SS in k.filename_from_path(song):
+                result.append(song)
+        available_songs = result
+        
     if "sort" in request.args and request.args["sort"] == "date":
         songs = sorted(available_songs, key=lambda x: os.path.getctime(x))
         songs.reverse()

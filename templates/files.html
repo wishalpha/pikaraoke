@@ -91,7 +91,14 @@
 {% endblock %}
 
 {% block content %}
+<P>
+	<form action="/browse" method="get">
+	<lable for="SearchString">Search </lable>
+	<input type="text" name="SearchString">
+	<input type="submit" value="search">
+	</form>
 
+</p>
 <p>
   {% if sort_order == "Alphabetical" %}
     {# MSG: Label which displays that the songs are currently sorted by alphabetical order. #}
