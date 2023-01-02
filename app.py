@@ -221,6 +221,20 @@ def skip():
     k.skip()
     return redirect(url_for("home"))
 
+@app.route("/skip2browse")
+def skip2browse():
+    k.skip()
+    return redirect(url_for("browse"))
+
+@app.route("/skip2search")
+def skip2search():
+    k.skip()
+    return redirect(url_for("search"))
+@app.route("/skip2queue")
+def skip2queue():
+    k.skip()
+    return redirect(url_for("queue"))
+
 @app.route("/cycle_audio_track")
 def cycle_audio_track():
     keyboard.press_and_release("b")
@@ -285,10 +299,11 @@ def search():
 
 @app.route("/autocomplete")
 def autocomplete():
-    q = request.args.get('q').lower()
+    #q = request.args.get('q').lower()
+    q = request.args.get('q')
     result = []
     for each in k.available_songs:
-        if q in each.lower():
+        if q in each:
             result.append({"path": each, "fileName": k.filename_from_path(each), "type": "autocomplete"})
     response = app.response_class(
         response=json.dumps(result),

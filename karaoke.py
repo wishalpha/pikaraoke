@@ -402,7 +402,8 @@ class Karaoke:
                 next_user = self.queue[0]["user"]
                 font_next_song = pygame.font.SysFont(pygame.font.get_default_font(), 60)
                 text = font_next_song.render(
-                    "Up next: %s" % (unidecode(next_song)), True, (0, 128, 0)
+                    #"Up next: %s" % (unidecode(next_song)), True, (0, 128, 0)
+                    "Up next: %s" % (next_song), True, (0, 128, 0)
                 )
                 up_next = font_next_song.render("Up next:  " , True, (255, 255, 0))
                 font_user_name = pygame.font.SysFont(pygame.font.get_default_font(), 50)
@@ -420,7 +421,8 @@ class Karaoke:
     def get_search_results(self, textToSearch):
         logging.info("Searching YouTube for: " + textToSearch)
         num_results = 10
-        yt_search = 'ytsearch%d:"%s"' % (num_results, unidecode(textToSearch))
+        #yt_search = 'ytsearch%d:"%s"' % (num_results, unidecode(textToSearch))
+        yt_search = 'ytsearch%d:"%s"' % (num_results, textToSearch)
         cmd = [self.youtubedl_path, "-j", "--no-playlist", "--flat-playlist", yt_search]
         logging.debug("Youtube-dl search command: " + " ".join(cmd))
         try:
